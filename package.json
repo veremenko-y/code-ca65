@@ -1,13 +1,13 @@
 {
-    "name": "code-ca65",
+    "name": "code-vasm_oldstyle",
     "icon": "images/icon.png",
-    "displayName": "ca65 Macro Assembler Language Support (6502/65816)",
-    "description": "Provides language support for the ca65 macro assembler.",
-    "version": "1.2.2",
-    "publisher": "tlgkccampbell",
+    "displayName": "vasm_oldstyle Macro Assembler Language Support (6502/65816)",
+    "description": "Provides language support for the vasm_oldstyle macro assembler.",
+    "version": "1.0.0",
+    "publisher": "veremenko-y",
     "repository": {
         "type": "git",
-        "url": "https://github.com/tlgkccampbell/code-ca65"
+        "url": "https://github.com/veremenko-y/code-vasm_oldstyle"
     },
     "license": "MIT",
     "engines": {
@@ -17,21 +17,20 @@
         "Programming Languages"
     ],
     "activationEvents": [
-        "onLanguage:ca65"
+        "onLanguage:vasm_oldstyle"
     ],
     "main": "./out/extension.js",
     "contributes": {
         "languages": [
             {
-                "id": "ca65",
+                "id": "vasm_oldstyle",
                 "aliases": [
                     "6502/65816 Assembly",
-                    "ca65"
+                    "vasm_oldstyle"
                 ],
                 "extensions": [
                     ".asm",
                     ".s",
-                    ".a65",
                     ".inc"
                 ],
                 "configuration": "./language-configuration.json"
@@ -39,85 +38,13 @@
         ],
         "grammars": [
             {
-                "language": "ca65",
-                "scopeName": "source.ca65",
-                "path": "./syntaxes/ca65.tmLanguage.json"
+                "language": "vasm_oldstyle",
+                "scopeName": "source.vasm_oldstyle",
+                "path": "./syntaxes/vasm_oldstyle.tmLanguage.json"
             }
         ],
-        "problemMatchers": [
-            {
-                "name": "ca65",
-                "owner": "ca65",
-                "fileLocation": "absolute",
-                "pattern": [
-                    {
-                        "regexp": "^(.+)\\((\\d+)\\):\\s+(Error|Warning|Note):\\s+(.+)$",
-                        "file": 1,
-                        "line": 2,
-                        "severity": 3,
-                        "message": 4
-                    }
-                ]
-            },
-            {
-                "name": "ld65-unresolved",
-                "owner": "ca65",
-                "fileLocation": "absolute",
-                "pattern": [
-                    {
-                        "regexp": "(Unresolved external `(.*)') referenced in:\\s*$",
-                        "message": 1,
-                        "code": 2
-                    },
-                    {
-                        "regexp": "\\s*(.*)\\((\\d+)\\)",
-                        "file": 1,
-                        "line": 2,
-                        "loop": true
-                    }
-                ]
-            },
-            {
-                "name": "ld65-config",
-                "owner": "ca65",
-                "fileLocation": "absolute",
-                "pattern": [
-                    {
-                        "regexp": "^ld65: (.*?): ((.*\\.cfg)\\((\\d+)\\): )?(.*)$",
-                        "severity": 1,
-                        "file": 3,
-                        "line": 4,
-                        "message": 5
-                    }
-                ]
-            },
-            {
-                "name": "ld65",
-                "owner": "ca65",
-                "fileLocation": "absolute",
-                "pattern": [
-                    {
-                        "regexp": "^ld65: (.*?): ((.*)\\((\\d+)\\): )?(.*)$",
-                        "severity": 1,
-                        "file": 3,
-                        "line": 4,
-                        "message": 5
-                    }
-                ]
-            }
-        ],
-        "taskDefinitions": [
-            {
-                "type": "ca65",
-                "required": [],
-                "properties": {
-                    "config": {
-                        "type": "string",
-                        "description": "The path to the ld65 configuration file which defines the target system's memory map."
-                    }
-                }
-            }
-        ]
+        "problemMatchers": [],
+        "taskDefinitions": []
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
@@ -127,10 +54,12 @@
     },
     "devDependencies": {
         "@types/node": "^13.9.3",
-        "@types/vscode": "^1.43.0",
+        "@types/vscode": "^1.52.0",
         "tslint": "^6.1.0",
         "typescript": "^3.8.3",
         "vscode-test": "^1.3.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "vscode": "^1.1.37"
+    }
 }

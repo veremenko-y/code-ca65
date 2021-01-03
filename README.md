@@ -1,3 +1,11 @@
+# Code vasm_oldstyle
+
+This is a hacky fork of code-ca65 to implement vasm_oldstyle syntax highlighting.
+
+## Original README
+
+-----------
+
 # ca65 Macro Assembler Language Support (6502/65816)
 
 This extension provides syntax highlighting and problem matchers for use with the [ca65 6502/65816 Macro Assembler](https://www.cc65.org/doc/ca65.html).
